@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: green;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: auto;
+        }
+
+        h1{
+            color: rgb(51, 51, 51);
+        }
+
+        .conversion{
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        input, select, button{
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid rgb(204, 204, 204);
+        }
+
+        button{
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #45a049;
+        }
+        
+        button:active{
+            background-color: #0000ff;
+
+        }
+        .result{
+            font-size: 18px;
+            margin-top: 10px;
+            color: #222;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="conversion">
+        <h1>
+            CONVERSION
+        </h1>
+    </div>
+    <input type="text" class="value1" placeholder="Enter a number">
+    <select name="convert" id="" class="converttype">
+        <option value="km">Kilometers to Meters</option>
+        <option value="m">Meters to Kilometers</option>
+    </select>
+    <button onclick="convertIt()">=</button>
+    <div class="result">
+        Result: <span class="result2"></span>
+    </div>
+
+    <script>
+        function convertIt() {
+        let value1 = document.querySelector(".value1");
+        let result2 = document.querySelector(".result2");
+        let converttype = document.querySelector(".converttype");
+        let m = 1000;
+
+            if (value1.value === " "){
+                result2.innerText = "Please enter a value.";
+                return;
+            }
+            if (converttype.value === "km"){
+                result2.innerText = Number(value1.value) * m + " meters";
+            }
+            else if(converttype.value === "m"){
+                result2.innerText = Number(value1.value) / m + " kilometers";
+            }
+            else {
+                result2.innerText = "Invalid";
+            }
+
+        }
+        
+        
+    </script>
+</body>
+</html>
